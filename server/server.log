@@ -1,0 +1,17 @@
+
+> server@1.0.0 start
+> node server.js
+
+[dotenv@17.2.1] injecting env (5) from .env -- tip: ⚙️  override existing env vars with { override: true }
+Server running on port 12001
+MongoDB Connected: localhost
+ValidationError: The 'X-Forwarded-For' header is set but the Express 'trust proxy' setting is false (default). This could indicate a misconfiguration which would prevent express-rate-limit from accurately identifying users. See https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/ for more information.
+    at Object.xForwardedForHeader (/workspace/project/server/node_modules/express-rate-limit/dist/index.cjs:364:13)
+    at wrappedValidations.<computed> [as xForwardedForHeader] (/workspace/project/server/node_modules/express-rate-limit/dist/index.cjs:606:22)
+    at Object.keyGenerator (/workspace/project/server/node_modules/express-rate-limit/dist/index.cjs:708:20)
+    at /workspace/project/server/node_modules/express-rate-limit/dist/index.cjs:766:32
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async /workspace/project/server/node_modules/express-rate-limit/dist/index.cjs:747:5 {
+  code: 'ERR_ERL_UNEXPECTED_X_FORWARDED_FOR',
+  help: 'https://express-rate-limit.github.io/ERR_ERL_UNEXPECTED_X_FORWARDED_FOR/'
+}
