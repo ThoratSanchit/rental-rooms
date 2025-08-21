@@ -116,7 +116,7 @@ const RoomDetail: React.FC = () => {
     );
   }
 
-  const isOwner = user?.id === room.owner.id;
+  const isOwner = user?._id === room.owner._id;
 
   return (
     <Box>
