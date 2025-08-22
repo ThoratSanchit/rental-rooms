@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { AuthResponse, ApiResponse, PaginatedResponse, Room, Inquiry, RoomFilters } from '../types';
 
-const API_BASE_URL = 'https://work-2-njnudoadvnxutjxt.prod-runtime.all-hands.dev/api';
+// Prefer env override; default to local API for development
+const API_BASE_URL =
+  process.env.REACT_APP_API_BASE_URL || 'http://localhost:12001/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,

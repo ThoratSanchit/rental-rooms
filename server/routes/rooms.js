@@ -10,6 +10,7 @@ const {
 } = require('../controllers/roomController');
 const { auth, ownerOnly } = require('../middleware/auth');
 const upload = require('../middleware/upload');
+const parseNested = require('../middleware/parseNested');
 
 const router = express.Router();
 
@@ -25,6 +26,7 @@ router.get('/owner/my-rooms', ownerOnly, getOwnerRooms);
 router.post('/', [
   ownerOnly,
   upload.array('images', 5),
+  parseNested,
   body('title').notEmpty().withMessage('Title is required'),
   body('description').notEmpty().withMessage('Description is required'),
   body('price').isNumeric().withMessage('Price must be a number'),

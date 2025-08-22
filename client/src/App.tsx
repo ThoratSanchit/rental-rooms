@@ -8,6 +8,10 @@ import SimpleHome from './pages/SimpleHome';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import SimpleRoomDetail from './pages/rooms/SimpleRoomDetail';
+import OwnerDashboard from './pages/owner/OwnerDashboard';
+import AddRoom from './pages/owner/AddRoom';
+import RenterDashboard from './pages/renter/RenterDashboard';
+import Profile from './pages/profile/Profile';
 
 const theme = createTheme({
   palette: {
@@ -35,6 +39,10 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/rooms/:id" element={<SimpleRoomDetail />} />
+              <Route path="/owner/dashboard" element={<OwnerDashboard />} />
+              <Route path="/owner/add-room" element={<AddRoom />} />
+              <Route path="/renter/dashboard" element={<RenterDashboard />} />
+              <Route path="/profile" element={<Profile />} />
             </Routes>
           </Layout>
         </Router>

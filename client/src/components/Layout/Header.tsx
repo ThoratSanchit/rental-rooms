@@ -41,8 +41,10 @@ const Header: React.FC = () => {
   const handleDashboard = () => {
     if (user?.role === 'owner') {
       navigate('/owner/dashboard');
+    } else if (user?.role === 'renter') {
+      navigate('/renter/dashboard');
     } else {
-      navigate('/dashboard');
+      navigate('/');
     }
     handleClose();
   };

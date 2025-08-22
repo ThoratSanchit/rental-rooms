@@ -1,0 +1,26 @@
+# Root ignore for monorepo
+
+# Dependencies
+client/node_modules/
+server/node_modules/
+
+# Builds
+client/build/
+
+# Coverage
+client/coverage/
+
+# Logs
+*.log
+
+# Environment files
+.env
+client/.env
+server/.env
+
+# OS / Editor junk
+.DS_Store
+.vscode/
+
+# Server uploads (generated at runtime)
+server/uploads/

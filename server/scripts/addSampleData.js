@@ -1,10 +1,11 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
+// const bcrypt = require('bcryptjs'); // Not needed; pre-save hook hashes
 const User = require('../models/User');
 const Room = require('../models/Room');
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/roomrental');
+// Connect to MongoDB (use same DB as server)
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/rental-rooms');
 
 const addSampleData = async () => {
   try {
@@ -12,13 +13,11 @@ const addSampleData = async () => {
     await User.deleteMany({});
     await Room.deleteMany({});
 
-    // Create sample users
-    const hashedPassword = await bcrypt.hash('password123', 10);
-    
+    // Create sample users (pass plaintext; pre-save hook will hash once)
     const owner1 = await User.create({
       name: 'John Smith',
       email: 'john@example.com',
-      password: hashedPassword,
+      password: 'password123',
       phone: '+1-555-0101',
       role: 'owner',
       isVerified: true
@@ -27,7 +26,7 @@ const addSampleData = async () => {
     const owner2 = await User.create({
       name: 'Sarah Johnson',
       email: 'sarah@example.com',
-      password: hashedPassword,
+      password: 'password123',
       phone: '+1-555-0102',
       role: 'owner',
       isVerified: true
@@ -36,7 +35,7 @@ const addSampleData = async () => {
     const renter1 = await User.create({
       name: 'Mike Wilson',
       email: 'mike@example.com',
-      password: hashedPassword,
+      password: 'password123',
       phone: '+1-555-0103',
       role: 'renter',
       isVerified: true

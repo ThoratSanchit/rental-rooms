@@ -9,7 +9,8 @@ const auth = async (req, res, next) => {
       return res.status(401).json({ message: 'No token, authorization denied' });
     }
 
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const secret = process.env.JWT_SECRET || 'dev_secret_change_me';
+    const decoded = jwt.verify(token, secret);
     const user = await User.findById(decoded.id).select('-password');
     
     if (!user) {

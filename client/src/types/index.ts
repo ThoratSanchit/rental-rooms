@@ -86,6 +86,7 @@ export interface PaginatedResponse<T> {
 }
 
 export interface RoomFilters {
+  search?: string;
   city?: string;
   state?: string;
   roomType?: string;
